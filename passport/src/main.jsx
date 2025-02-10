@@ -7,6 +7,7 @@ import Apply from "./Pages/Apply.jsx";
 import Firstissuance from "./Pages/Firstissuance.jsx";
 import Onlineform from "./Pages/Onlineform.jsx";
 import Userdetail from "./Pages/Userdetail.jsx";
+import Photo from "./Pages/Photo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/userdetail",
     element: <Userdetail />,
+  },
+  {
+    path: "/photo",
+    element: <Photo />,
   },
 ]);
 
