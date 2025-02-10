@@ -15,3 +15,8 @@ app.use("/api/user", routes);
 app.listen(PORT, () => {
   console.log(`App is running successfully in port no ${PORT}`);
 });
+
+
+//clodinary roadmap
+
+// model ==>  uploadmiddleware   ==> Upload image(controller) ==>config  ==>Helper
