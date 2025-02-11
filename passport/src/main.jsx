@@ -8,6 +8,7 @@ import Firstissuance from "./Pages/Firstissuance.jsx";
 import Onlineform from "./Pages/Onlineform.jsx";
 import Userdetail from "./Pages/Userdetail.jsx";
 import Photo from "./Pages/Photo.jsx";
+import Showstatus from "./Pages/Showstatus.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/photo",
     element: <Photo />,
+  },
+  {
+    path: "/status",
+    element: <Showstatus />,
   },
 ]);
 

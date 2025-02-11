@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const ImageSchema = new mongoose.Schema(
   {
     url: {
@@ -9,14 +10,10 @@ const ImageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // uploadedBy: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "userdetail",
-    //   required: true,
-    // },
   },
   {
     timestamps: true,
   }
 );
+
 module.exports = mongoose.model("Image", ImageSchema);
