@@ -1,4 +1,5 @@
 const imageModel = require("../model/image-model");
+const dateschema = require("../model/date-model");
 const uploadToCloudinary = require("../helper/Cloudinary-helper");
 const fs = require("fs");
 const path = require("path");
@@ -9,13 +10,28 @@ const uploadImage = async (req, res) => {
       return res.status(400).json({ message: "No images uploaded" });
     }
 
+    // Find the latest appointment entry
+    const latestAppointment = await dateschema.findOne().sort({ _id: -1 });
+
+    if (!latestAppointment) {
+      return res.status(400).json({
+        message: "No appointment found. Please create an appointment first.",
+      });
+    }
+
+    const appointmentId = latestAppointment._id; // Get the latest appointment's ID
+
     const uploadedImages = await Promise.all(
       req.files.map(async (file) => {
         try {
           const { url, publicId } = await uploadToCloudinary(file.path);
 
-          // Save to database
-          const savedImage = await imageModel.create({ url, publicId });
+          // Save to database with appointmentId
+          const savedImage = await imageModel.create({
+            url,
+            publicId,
+            appointmentId,
+          });
 
           // Delete file only if Cloudinary upload is successful
           const filePath = path.resolve(file.path);

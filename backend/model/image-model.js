@@ -10,6 +10,11 @@ const ImageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    appointmentId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "appointment", // Reference to the Appointment Schema
+      required: true,
+    },
   },
   {
     timestamps: true,
