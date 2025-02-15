@@ -9,6 +9,8 @@ import Onlineform from "./Pages/Onlineform.jsx";
 import Userdetail from "./Pages/Userdetail.jsx";
 import Photo from "./Pages/Photo.jsx";
 import Showstatus from "./Pages/Showstatus.jsx";
+import Searchlostpassport from "./Pages/Searchlostpassport.jsx";
+import Statusresult from "./Pages/Statusresult.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
   {
     path: "/status",
     element: <Showstatus />,
+  },
+  {
+    path: "/search",
+    element: <Searchlostpassport />,
+  },
+  {
+    path: "/statusresult",
+    element: <Statusresult />,
   },
 ]);
 
