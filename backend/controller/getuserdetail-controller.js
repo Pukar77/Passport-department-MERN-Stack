@@ -15,7 +15,6 @@ const getuserdetail = async (req, res) => {
       gender,
     } = req.body;
 
-    // Find the latest appointment entry (sorted by creation time)
     const latestAppointment = await dateschema.findOne().sort({ _id: -1 });
 
     if (!latestAppointment) {
