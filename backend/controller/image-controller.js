@@ -6,6 +6,11 @@ const path = require("path");
 
 const uploadImage = async (req, res) => {
   try {
+    if(!req.session.appointmentId){
+      return res.status(500).json({
+        
+      })
+    }
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ message: "No images uploaded" });
     }

@@ -36,6 +36,7 @@ function Userdetail() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userdata),
+        credentials: "include",
       });
 
       let data = await response.json();

@@ -5,7 +5,10 @@ const getappointment = async (req, res) => {
   try {
     const { country, provience, date } = req.body;
     const insert = await dateschema.create({ country, provience, date });
+
     if (insert) {
+      req.session.appointmentId = insert._id;
+      await req.session.save();
       return res.status(200).json({
         message: "Successfully stored data",
         status: true,

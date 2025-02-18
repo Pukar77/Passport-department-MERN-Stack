@@ -1,9 +1,17 @@
 const express = require("express");
 const userschema = require("../model/user-detail");
-const dateschema = require("../model/date-model");
 
 const getuserdetail = async (req, res) => {
   try {
+    console.log("Session is ", req.session);
+    if (!req.session.appointmentId) {
+      return res.status(500).json({
+        message: "Please fill out the appoinment form first",
+        status: false,
+      });
+    }
+    const appointmentId = req.session.appointmentId;
+
     const {
       firstname,
       lastname,
@@ -15,17 +23,6 @@ const getuserdetail = async (req, res) => {
       gender,
     } = req.body;
 
-    const latestAppointment = await dateschema.findOne().sort({ _id: -1 });
-
-    if (!latestAppointment) {
-      return res.status(400).json({
-        message: "No appointment found. Please create an appointment first.",
-      });
-    }
-
-    const appointmentId = latestAppointment._id; // Get the latest appointment's ID
-
-    // Create user entry linked to the latest appointment
     const insert = await userschema.create({
       firstname,
       lastname,
