@@ -8,11 +8,31 @@ function Searchlostpassport() {
   const navigate = useNavigate();
 
   const [passport, setPassport] = useState("");
-  const handlesubmit = () => {
+  const handlesubmit = async () => {
     if (!passport) {
       alert("You must enter your passport number first");
-    } else {
-      navigate("/statusresult");
+      return;
+    }
+    try {
+      const response = await fetch("http://localhost:8000/api/user/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userid: passport,
+        }),
+      });
+      const result = await response.json();
+      console.log(result);
+
+      if (response.ok) {
+        navigate("/statusresult", { state: { userData: result } });
+      } else {
+        console.log("Failed to handle api request");
+      }
+    } catch (e) {
+      console.log("Error in backend of frontend", e);
     }
   };
   return (

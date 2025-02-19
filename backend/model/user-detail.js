@@ -39,6 +39,21 @@ const userSchema = new mongoose.Schema({
     require: true,
     type: String,
   },
+  district: {
+    require: true,
+    type: String,
+  },
+
+  wardno: {
+    require: true,
+    type: String,
+  },
+
+  email: {
+    require: true,
+    type: String,
+  },
+
   appointmentId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "appointment", // Reference to the Appointment Schema

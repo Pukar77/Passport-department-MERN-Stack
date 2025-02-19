@@ -59,15 +59,15 @@ function Onlineform() {
 
     if (selectedDay === 6) {
       alert("Saturday is not available. Please choose another date.");
-      setDate(""); // Use setDate to update date
+      setDate(""); 
     } else {
-      setDate(dateValue); // Use setDate to update date
+      setDate(dateValue); 
     }
   };
 
   // Handle country change
   const handleCountryChange = (event) => {
-    setCountry(event.target.value); // Use setCountry to update country
+    setCountry(event.target.value); 
   };
 
   const handleproviencechange = (e) => {

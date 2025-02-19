@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 function Userdetail() {
   const navigate = useNavigate();
 
+  const [apidata, setApidata] = useState([]);
+
   const [userdata, setUserdata] = useState({
     firstname: "",
     lastname: "",
@@ -14,6 +16,9 @@ function Userdetail() {
     motherfirstname: "",
     motherlastname: "",
     gender: "",
+    district: "",
+    wardno: "",
+    email: "",
   });
 
   const validateForm = () => {
@@ -40,6 +45,7 @@ function Userdetail() {
       });
 
       let data = await response.json();
+      // setApidata(data.appoinmentdata);
       console.log("Response received:", data); // Debugging
 
       if (response.ok) {
@@ -183,6 +189,49 @@ function Userdetail() {
                     required
                   />
                 </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block font-medium text-gray-700">
+                    District
+                  </label>
+                  <input
+                    type="text"
+                    name="district"
+                    value={userdata.district}
+                    onChange={handleinput}
+                    className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block font-medium text-gray-700">
+                    Ward Number
+                  </label>
+                  <input
+                    type="text"
+                    name="wardno"
+                    value={userdata.wardno}
+                    onChange={handleinput}
+                    className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block font-medium text-gray-700">
+                  Email adddress
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={userdata.email}
+                  onChange={handleinput}
+                  className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  required
+                />
               </div>
 
               {/* Gender Selection */}

@@ -21,6 +21,9 @@ const getuserdetail = async (req, res) => {
       motherfirstname,
       motherlastname,
       gender,
+      district,
+      wardno,
+      email,
     } = req.body;
 
     const insert = await userschema.create({
@@ -32,6 +35,9 @@ const getuserdetail = async (req, res) => {
       motherfirstname,
       motherlastname,
       gender,
+      district,
+      wardno,
+      email,
       appointmentId, // Store reference automatically
     });
 
