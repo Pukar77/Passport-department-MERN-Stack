@@ -5,22 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 function Photo() {
   const navigate = useNavigate();
-  const [files, setFiles] = useState([
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-  ]);
+  const [files, setFiles] = useState(Array(9).fill(null)); // Initialize an array for 9 files
 
   // Handle file change for each field
   const handleFileChange = (index, event) => {
     const file = event.target.files ? event.target.files[0] : null;
     if (file) {
+      console.log(`File selected for index ${index}:`, file); // Log the selected file
       setFiles((prevFiles) => {
         const updatedFiles = [...prevFiles];
         updatedFiles[index] = file;
@@ -44,7 +35,7 @@ function Photo() {
     // Append each file to the formData
     files.forEach((file, index) => {
       if (file) {
-        formData.append(`images${index + 1}`, file); // Append each file with its key
+        formData.append(`images`, file); // Append each file with its key
       }
     });
 
@@ -56,6 +47,7 @@ function Photo() {
         {
           method: "POST",
           body: formData,
+          credentials: "include",
         }
       );
 
@@ -64,8 +56,10 @@ function Photo() {
 
       if (response.ok) {
         alert("Files uploaded successfully!");
+        localStorage.setItem("appoinmentid", data.data[0].appointmentId);
         navigate("/status");
       } else {
+        console.error("Upload failed:", data); // Log the error response
         alert("Failed to upload files: " + data.message);
       }
     } catch (error) {
