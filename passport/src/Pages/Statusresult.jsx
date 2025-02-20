@@ -13,28 +13,37 @@ function Statusresult() {
   const user = userData.userdetail;
   const appointment = userData.appoinmentdata;
 
-  
-
   // Function to override unsupported colors globally before rendering
   const fixUnsupportedColors = () => {
     const allElements = contentRef.current.querySelectorAll("*");
     allElements.forEach((element) => {
       const computedStyle = window.getComputedStyle(element);
       const color = computedStyle.color;
+      const backgroundColor = computedStyle.backgroundColor;
+      const borderColor = computedStyle.borderColor;
 
       // Check if the color uses "oklch" and replace it
       if (color.includes("oklch")) {
-        // Convert the oklch color to rgb (example: using a default color replacement)
-        element.style.color = "rgb(0, 0, 0)"; // Replace "oklch" color with black (or use your desired color)
+        element.style.color = "rgb(0, 0, 0)"; // Replace with a default color
+      }
+      if (backgroundColor.includes("oklch")) {
+        element.style.backgroundColor = "rgb(255, 255, 255)"; // Replace with white or your desired color
+      }
+      if (borderColor.includes("oklch")) {
+        element.style.borderColor = "rgb(0, 0, 0)"; // Replace with a default border color
       }
     });
+
+    // Force reflow
+    contentRef.current.offsetHeight; // This line forces a reflow
   };
 
   const handleDownloadPDF = () => {
-    fixUnsupportedColors(); // Remove unsupported color functions first
+    fixUnsupportedColors(); // Ensure unsupported colors are fixed
 
     html2canvas(contentRef.current, {
       useCORS: true,
+      scale: 2, // Adjust scale for better resolution
     })
       .then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
@@ -64,11 +73,12 @@ function Statusresult() {
   };
 
   return (
+    <div>
+    <Navbar />
     <div ref={contentRef}>
-      <Navbar />
 
       <form>
-        <div className="flex justify-center items-center min-h-screen  p-4">
+        <div className="flex justify-center items-center min-h-screen p-4">
           <div className="bg-white shadow-md rounded-lg p-6 md:p-10 w-full max-w-2xl">
             <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">
               Personal Information
@@ -271,6 +281,10 @@ function Statusresult() {
           </div>
         </div>
       </form>
+    </div>
+    <div className="text-center font-semibold">
+    Note: Please visit the Passport deparment or CDO office taking the original citizenship as well as this document in printed form.
+    </div>
     </div>
   );
 }
