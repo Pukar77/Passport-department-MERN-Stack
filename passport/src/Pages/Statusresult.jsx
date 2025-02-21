@@ -74,217 +74,218 @@ function Statusresult() {
 
   return (
     <div>
-    <Navbar />
-    <div ref={contentRef}>
+      <div ref={contentRef}>
+        <Navbar />
 
-      <form>
-        <div className="flex justify-center items-center min-h-screen p-4">
-          <div className="bg-white shadow-md rounded-lg p-6 md:p-10 w-full max-w-2xl">
-            <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">
-              Personal Information
-            </h1>
+        <form>
+          <div className="flex justify-center items-center min-h-screen p-4">
+            <div className="bg-white shadow-md rounded-lg p-6 md:p-10 w-full max-w-2xl">
+              <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">
+                Personal Information
+              </h1>
 
-            <div className="space-y-4">
-              {/* First & Last Name */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="space-y-4">
+                {/* First & Last Name */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      name="firstname"
+                      value={user.firstname || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      name="lastname"
+                      value={user.lastname || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
+                </div>
+
+                {/* Date of Birth */}
                 <div>
                   <label className="block font-medium text-gray-700">
-                    First Name
+                    Date of Birth
                   </label>
                   <input
                     type="text"
-                    name="firstname"
-                    value={user.firstname || ""}
+                    name="dob"
+                    value={user.dob || ""}
                     className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
                     readOnly
                   />
                 </div>
-                <div>
-                  <label className="block font-medium text-gray-700">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="lastname"
-                    value={user.lastname || ""}
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                    readOnly
-                  />
-                </div>
-              </div>
 
-              {/* Date of Birth */}
-              <div>
-                <label className="block font-medium text-gray-700">
-                  Date of Birth
-                </label>
-                <input
-                  type="text"
-                  name="dob"
-                  value={user.dob || ""}
-                  className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                  readOnly
-                />
-              </div>
+                {/* Father's Name */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      Father's First Name
+                    </label>
+                    <input
+                      type="text"
+                      name="fatherfirstname"
+                      value={user.fatherfirstname || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      Father's Last Name
+                    </label>
+                    <input
+                      type="text"
+                      name="fatherlastname"
+                      value={user.fatherlastname || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
+                </div>
 
-              {/* Father's Name */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-medium text-gray-700">
-                    Father's First Name
-                  </label>
-                  <input
-                    type="text"
-                    name="fatherfirstname"
-                    value={user.fatherfirstname || ""}
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                    readOnly
-                  />
+                {/* Mother's Name */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      Mother's First Name
+                    </label>
+                    <input
+                      type="text"
+                      name="motherfirstname"
+                      value={user.motherfirstname || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      Mother's Last Name
+                    </label>
+                    <input
+                      type="text"
+                      name="motherlastname"
+                      value={user.motherlastname || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block font-medium text-gray-700">
-                    Father's Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="fatherlastname"
-                    value={user.fatherlastname || ""}
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                    readOnly
-                  />
-                </div>
-              </div>
 
-              {/* Mother's Name */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-medium text-gray-700">
-                    Mother's First Name
-                  </label>
-                  <input
-                    type="text"
-                    name="motherfirstname"
-                    value={user.motherfirstname || ""}
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                    readOnly
-                  />
+                {/* District and Ward Number */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      District
+                    </label>
+                    <input
+                      type="text"
+                      name="district"
+                      value={appointment.country || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      Ward Number
+                    </label>
+                    <input
+                      type="text"
+                      name="wardno"
+                      value={appointment.provience || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block font-medium text-gray-700">
-                    Mother's Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="motherlastname"
-                    value={user.motherlastname || ""}
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                    readOnly
-                  />
-                </div>
-              </div>
 
-              {/* District and Ward Number */}
-              <div className="grid md:grid-cols-2 gap-4">
+                {/* Country and Province */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      Country
+                    </label>
+                    <input
+                      type="text"
+                      name="country"
+                      value={appointment.country || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-medium text-gray-700">
+                      Province
+                    </label>
+                    <input
+                      type="text"
+                      name="province"
+                      value={appointment.provience || ""}
+                      className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                      readOnly
+                    />
+                  </div>
+                </div>
+
+                {/* Gender Selection */}
                 <div>
                   <label className="block font-medium text-gray-700">
-                    District
+                    Gender
                   </label>
                   <input
                     type="text"
-                    name="district"
-                    value={appointment.country || ""}
+                    name="gender"
+                    value={user.gender || ""}
                     className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
                     readOnly
                   />
                 </div>
+
+                {/* Email Address */}
                 <div>
                   <label className="block font-medium text-gray-700">
-                    Ward Number
+                    Email Address
                   </label>
                   <input
-                    type="text"
-                    name="wardno"
-                    value={appointment.provience || ""}
+                    type="email"
+                    name="email"
+                    value={user.email || ""}
                     className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
                     readOnly
                   />
                 </div>
-              </div>
 
-              {/* Country and Province */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-medium text-gray-700">
-                    Country
-                  </label>
-                  <input
-                    type="text"
-                    name="country"
-                    value={appointment.country || ""}
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                    readOnly
-                  />
+                {/* Download PDF Button */}
+                <div className="text-center mt-6">
+                  <button
+                    type="button"
+                    onClick={handleDownloadPDF} // Call the function on click
+                    className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer"
+                  >
+                    Download PDF
+                  </button>
                 </div>
-                <div>
-                  <label className="block font-medium text-gray-700">
-                    Province
-                  </label>
-                  <input
-                    type="text"
-                    name="province"
-                    value={appointment.provience || ""}
-                    className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                    readOnly
-                  />
-                </div>
-              </div>
-
-              {/* Gender Selection */}
-              <div>
-                <label className="block font-medium text-gray-700">
-                  Gender
-                </label>
-                <input
-                  type="text"
-                  name="gender"
-                  value={user.gender || ""}
-                  className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                  readOnly
-                />
-              </div>
-
-              {/* Email Address */}
-              <div>
-                <label className="block font-medium text-gray-700">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={user.email || ""}
-                  className="w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-                  readOnly
-                />
-              </div>
-
-              {/* Download PDF Button */}
-              <div className="text-center mt-6">
-                <button
-                  type="button"
-                  onClick={handleDownloadPDF} // Call the function on click
-                  className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer"
-                >
-                  Download PDF
-                </button>
               </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-    <div className="text-center font-semibold">
-    Note: Please visit the Passport deparment or CDO office taking the original citizenship as well as this document in printed form.
-    </div>
+        </form>
+      </div>
+      <div className="text-center font-semibold">
+        Note: Please visit the Passport deparment or CDO office taking the
+        original citizenship as well as this document in printed form.
+      </div>
     </div>
   );
 }
