@@ -4,10 +4,10 @@ const user = require("../model/user-detail");
 const image = require("../model/image-model");
 
 const searchdynamically = async (req, res) => {
-  const { userid } = req.params;
-  const result = await date.findOne({ _id: userid });
+  const { id } = req.params;
+  const result = await date.findOne({ _id: id });
   const result1 = await user.findOne({
-    appointmentId: userid,
+    appointmentId: id,
   });
 
   if (result && result1) {

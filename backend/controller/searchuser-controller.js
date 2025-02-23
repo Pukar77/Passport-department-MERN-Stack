@@ -4,7 +4,7 @@ const user = require("../model/user-detail");
 const image = require("../model/image-model");
 
 const searchuser = async (req, res) => {
-  const { userid } = req.body.userid;
+  const { userid } = req.body;
   const result = await date.findOne({ _id: userid });
   const result1 = await user.findOne({
     appointmentId: userid,

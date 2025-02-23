@@ -11,7 +11,7 @@ const routes = express.Router();
 routes.post("/appointmentdate", getAppointment);
 routes.post("/userdetail", getUserDetail);
 routes.post("/search", searchuser);
-routes.get("/search/:userid", searchdynamically);
+routes.get("/search/:id", searchdynamically);
 routes.post("/uploadimage", uploadMiddleware.array("images", 9), uploadImage);
 
 module.exports = routes;
