@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Secondnavbar() {
   return (
@@ -11,7 +12,7 @@ function Secondnavbar() {
       <a href="#">Press & Notice</a>
       <a href="#">Gallery</a>
       <a href="#">Blog</a>
-      <a href="#">News & event</a>
+      <NavLink to="/admin">Admin Login</NavLink>
     </div>
   );
 }
