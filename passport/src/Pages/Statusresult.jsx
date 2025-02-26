@@ -81,7 +81,7 @@ function Statusresult() {
           <div className="flex justify-center items-center min-h-screen p-4">
             <div className="bg-white shadow-md rounded-lg p-6 md:p-10 w-full max-w-2xl">
               <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">
-                Personal Information - Category: Recover Password
+                Personal Information- Category Lost passport
               </h1>
 
               <div className="space-y-4">

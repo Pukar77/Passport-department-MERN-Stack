@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
 import Secondnavbar from "../navbar/Secondnavbar";
-
+import { useNavigate } from "react-router";
 
 function Admin() {
   const [formdata, setFormdata] = useState({
@@ -9,14 +9,46 @@ function Admin() {
     password: "",
   });
 
-  // const hanldesubmit = ()=>{
+  const navigate = useNavigate();
 
-  // }
+  const hanldesubmit = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
 
-  // const display = ()=>{
+    setFormdata((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  // }
+  const display = async (e) => {
+    e.preventDefault();
+    try {
+      let response = await fetch("http://localhost:8000/api/user/adminlogin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: formdata.username,
+          password: formdata.password,
+        }),
+      });
 
+      let data1 = await response.json();
+      console.log(data1);
+
+      if (data1.status) {
+        alert(data1.message);
+
+        navigate("/adminhome");
+      } else {
+        alert("Invalid Username or password");
+      }
+    } catch (e) {
+      console.log("TORI ATUL", e);
+    }
+  };
 
   return (
     <div>
@@ -34,7 +66,8 @@ function Admin() {
             is not for general citizens. Thank you
           </p>
 
-          <form onSubmit={hanldesubmit}
+          <form
+            onSubmit={display}
             action="#"
             className="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
@@ -53,7 +86,8 @@ function Admin() {
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
                   placeholder="Enter Username"
                   value={formdata.username}
-                  onChange={display}
+                  onChange={hanldesubmit}
+                  name="username"
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -86,7 +120,8 @@ function Admin() {
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
                   placeholder="Enter password"
                   value={formdata.password}
-                  onChange={display}
+                  onChange={hanldesubmit}
+                  name="password"
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -116,7 +151,7 @@ function Admin() {
 
             <button
               type="submit"
-              className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+              className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white cursor-pointer"
             >
               Log in
             </button>
