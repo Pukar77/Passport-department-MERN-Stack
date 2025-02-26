@@ -6,6 +6,7 @@ const uploadMiddleware = require("../middleware/upload-middleware");
 const searchuser = require("../controller/searchuser-controller");
 const searchdynamically = require("../controller/dynamic-search-controller");
 const admininfo = require("../controller/admin-controller");
+const loginadmin = require("../controller/admin-controller");
 
 const routes = express.Router();
 
@@ -15,5 +16,6 @@ routes.post("/search", searchuser);
 routes.get("/search/:id", searchdynamically);
 routes.post("/uploadimage", uploadMiddleware.array("images", 9), uploadImage);
 routes.post("/admin", admininfo);
+routes.post("/adminlogin", loginadmin);
 
 module.exports = routes;

@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
 import Secondnavbar from "../navbar/Secondnavbar";
 
+
 function Admin() {
+  const [formdata, setFormdata] = useState({
+    username: "",
+    password: "",
+  });
+
+  // const hanldesubmit = ()=>{
+
+  // }
+
+  // const display = ()=>{
+
+  // }
+
+
   return (
     <div>
       <Navbar />
@@ -19,7 +34,7 @@ function Admin() {
             is not for general citizens. Thank you
           </p>
 
-          <form
+          <form onSubmit={hanldesubmit}
             action="#"
             className="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
@@ -37,6 +52,8 @@ function Admin() {
                   type="text"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
                   placeholder="Enter Username"
+                  value={formdata.username}
+                  onChange={display}
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -68,6 +85,8 @@ function Admin() {
                   type="password"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
                   placeholder="Enter password"
+                  value={formdata.password}
+                  onChange={display}
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -103,7 +122,6 @@ function Admin() {
             </button>
 
             <p className="text-center text-sm text-gray-500">
-              
               <a className="underline" href="#">
                 Change Password?
               </a>
