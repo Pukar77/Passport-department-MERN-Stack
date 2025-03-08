@@ -4,6 +4,7 @@ import Secondnavbar from "../navbar/Secondnavbar";
 
 function Adminhome() {
   const [apidata, setApiData] = useState({ alldata: [] });
+  const [verifyStatus, setVerifyStatus] = useState({}); // Store verify state per user
 
   const handleapi = async () => {
     try {
@@ -19,6 +20,14 @@ function Adminhome() {
   useEffect(() => {
     handleapi();
   }, []);
+
+  const handleVerify = (id) => {
+    alert("Confirm Verification");
+    setVerifyStatus((prevState) => ({
+      ...prevState,
+      [id]: "Verified",
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -40,8 +49,24 @@ function Adminhome() {
                   <tr key={item._id} className="border-t border-gray-200">
                     <td className="px-4 py-3 text-gray-700">{item._id}</td>
                     <td className="px-4 py-3 text-center">
-                      <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition duration-200 cursor-pointer">
-                        Verify Now
+                      <button
+                        onClick={() => handleVerify(item._id)}
+                        className={`px-4 py-2 rounded-md transition duration-200 cursor-pointer ${
+                          verifyStatus[item._id] === "Verified"
+                            ? " cursor-not-allowed"
+                            : "bg-green-500 hover:bg-green-600 text-white"
+                        }`}
+                      >
+                        {verifyStatus[item._id] || "Verify Now"}
+                      </button>
+
+                      <button
+                        
+                        className={`px-4 py-2 rounded-md transition duration-200 cursor-pointer bg-green-500 hover:bg-green-600 text-white ml-5 
+                       
+                        `}
+                      >
+                        Send Email
                       </button>
                     </td>
                   </tr>
