@@ -4,7 +4,7 @@ import Secondnavbar from "../navbar/Secondnavbar";
 
 function Adminhome() {
   const [apidata, setApiData] = useState({ alldata: [] });
-  const [verifyStatus, setVerifyStatus] = useState({}); // Store verify state per user
+  const [verifyStatus, setVerifyStatus] = useState({}); 
 
   const handleapi = async () => {
     try {
@@ -20,6 +20,29 @@ function Adminhome() {
   useEffect(() => {
     handleapi();
   }, []);
+
+  const handleemail = async (id) => {
+    console.log(id);
+    try {
+      const response = await fetch(
+        `http://localhost:8000/api/user/adminsearch/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      console.log(data.userdetail.email);
+      if (response.ok) {
+        alert(`Email sent to ${data.userdetail.email}`);
+      }
+    } catch (e) {
+      console.log("Some error occured when sending the email ", e);
+    }
+  };
 
   const handleVerify = (id) => {
     alert("Confirm Verification");
@@ -61,9 +84,9 @@ function Adminhome() {
                       </button>
 
                       <button
-                        
+                        onClick={() => handleemail(item._id)}
                         className={`px-4 py-2 rounded-md transition duration-200 cursor-pointer bg-green-500 hover:bg-green-600 text-white ml-5 
-                       
+
                         `}
                       >
                         Send Email
