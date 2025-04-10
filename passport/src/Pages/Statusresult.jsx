@@ -3,6 +3,7 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas"; // Import html2canvas
 import Navbar from "../navbar/Navbar";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Statusresult() {
   const location = useLocation();
@@ -276,6 +277,12 @@ function Statusresult() {
                   >
                     Download PDF
                   </button>
+                  <Link
+                    to="/"
+                    className="block w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition cursor-pointer mt-4"
+                  >
+                    Go to home page
+                  </Link>
                 </div>
               </div>
             </div>
