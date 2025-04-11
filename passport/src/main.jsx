@@ -13,6 +13,8 @@ import Searchlostpassport from "./Pages/Searchlostpassport.jsx";
 import Statusresult from "./Pages/Statusresult.jsx";
 import Admin from "./Pages/Admin.jsx";
 import Adminhome from "./Pages/Adminhome.jsx";
+import ActsRule from "./Pages/ActsRule.jsx";
+import Pay from "./Pages/Pay.jsx";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +61,14 @@ const router = createBrowserRouter([
   {
     path: "/adminhome",
     element: <Adminhome />,
+  },
+  {
+    path: "/rule",
+    element: <ActsRule />,
+  },
+  {
+    path: "/pay",
+    element: <Pay />,
   },
 ]);
 

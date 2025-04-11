@@ -157,9 +157,9 @@ function Admin() {
             </button>
 
             <p className="text-center text-sm text-gray-500">
-              <a className="underline" href="#">
+              {/* <a className="underline" href="#">
                 Change Password?
-              </a>
+              </a> */}
             </p>
           </form>
         </div>
