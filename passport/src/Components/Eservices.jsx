@@ -88,9 +88,10 @@ export default function Eservices() {
             </p>
           </div>
           <div className="flex justify-end p-4 pt-0">
-            <button className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-4 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none cursor-pointer">
-              <NavLink to="/pay">Pay Now</NavLink>
-            </button>
+          <NavLink to="/pay" className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-emerald-500 px-4 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-emerald-600 focus:bg-emerald-700 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none cursor-pointer">
+              <span>Renew Passport</span>
+            </NavLink>
+            
           </div>
         </div>
       </div>

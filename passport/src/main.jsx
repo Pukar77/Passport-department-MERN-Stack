@@ -15,6 +15,7 @@ import Admin from "./Pages/Admin.jsx";
 import Adminhome from "./Pages/Adminhome.jsx";
 import ActsRule from "./Pages/ActsRule.jsx";
 import Pay from "./Pages/Pay.jsx";
+import PaymentSuccess from "./Pages/PaymentSuccess.jsx";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
   {
     path: "/pay",
     element: <Pay />,
+  },
+  {
+    path: "/paymentsuccess",
+    element: <PaymentSuccess />,
   },
 ]);
 
