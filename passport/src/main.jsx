@@ -16,6 +16,10 @@ import Adminhome from "./Pages/Adminhome.jsx";
 import ActsRule from "./Pages/ActsRule.jsx";
 import Pay from "./Pages/Pay.jsx";
 import PaymentSuccess from "./Pages/PaymentSuccess.jsx";
+import Aboutus from "./Pages/Aboutus.jsx";
+import PressandRelease from "./Pages/PressandRelease.jsx";
+import PassportAct from "./Pages/PassportAct.jsx";
+import Epassport from "./Pages/Epassport.jsx";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +79,22 @@ const router = createBrowserRouter([
     path: "/paymentsuccess",
     element: <PaymentSuccess />,
   },
+  {
+    path: "/aboutus",
+    element: <Aboutus />,
+  },
+  {
+    path: "/press",
+    element: <PressandRelease />,
+  },
+  {
+    path: "/pass",
+    element: <PassportAct />,
+  },
+  {
+    path:"/epassport",
+    element:<Epassport/>
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
