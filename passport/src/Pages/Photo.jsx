@@ -32,10 +32,10 @@ function Photo() {
     }
 
     const formData = new FormData();
-    // Append each file to the formData
+
     files.forEach((file, index) => {
       if (file) {
-        formData.append(`images`, file); // Append each file with its key
+        formData.append(`images`, file);
       }
     });
 

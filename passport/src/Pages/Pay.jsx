@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import CryptoJS from "crypto-js";
 import Secondnavbar from "../navbar/Secondnavbar";
 import Navbar from "../navbar/Navbar";
+import { useNavigate } from "react-router";
 
 function Pay() {
   const [formdata, Setformdata] = useState({
@@ -138,6 +139,20 @@ function Pay() {
           />
           <input type="hidden" name="signature" value={formdata.signature} />
 
+          <label
+            htmlFor="passport_id"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Enter your e-Passport ID
+          </label>
+          <input
+            type="text"
+            id="passport_id"
+            name="passport_id"
+            placeholder="E.g., 123456789"
+            className="border border-gray-300 rounded px-3 py-2 w-full mb-4"
+            required
+          />
           <input
             className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded cursor-pointer transition duration-300"
             value="Renew Contract"

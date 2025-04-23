@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Thirdnavbar from "../navbar/Thirdnavbar";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Onlineform() {
   const [date, setDate] = useState("");
@@ -34,8 +37,10 @@ function Onlineform() {
         console.log(result);
 
         if (response.ok) {
-          alert(result.message);
-          navigate("/userdetail");
+          toast.success(result.message);
+          setTimeout(() => {
+            navigate("/userdetail");
+          }, 2000);
         } else {
           alert(result.message);
         }
@@ -43,7 +48,7 @@ function Onlineform() {
         console.log("Some error occured", e);
       }
     } else {
-      alert("You must select country and date first");
+      toast.error("You must select country and date first");
     }
   };
 
@@ -59,15 +64,15 @@ function Onlineform() {
 
     if (selectedDay === 6) {
       alert("Saturday is not available. Please choose another date.");
-      setDate(""); 
+      setDate("");
     } else {
-      setDate(dateValue); 
+      setDate(dateValue);
     }
   };
 
   // Handle country change
   const handleCountryChange = (event) => {
-    setCountry(event.target.value); 
+    setCountry(event.target.value);
   };
 
   const handleproviencechange = (e) => {
@@ -90,6 +95,7 @@ function Onlineform() {
   return (
     <div className="min-h-screen bg-gray-100">
       <Thirdnavbar />
+      <ToastContainer />
       <div className="flex justify-center items-center min-h-screen p-4">
         {/* Card Layout */}
         <div className="bg-white shadow-lg rounded-2xl p-6 md:p-10 w-full max-w-lg">

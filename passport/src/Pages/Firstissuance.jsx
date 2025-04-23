@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import passbuilding from "../assets/passbuilding.jpg";
 import { useNavigate } from "react-router";
 import Thirdnavbar from "../navbar/Thirdnavbar";
+import { NavLink } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function Firstissuance() {
   const [selectedoption, Setselectedoption] = useState(null);
@@ -10,7 +13,7 @@ function Firstissuance() {
 
   const handlenavigate = () => {
     if (!selectedoption) {
-      alert("You must select an passport type first");
+      toast.error("You must select an passport type first");
       return;
     } else {
       navigate("/onlineform", { state: { passportType: selectedoption } });
@@ -19,7 +22,8 @@ function Firstissuance() {
 
   return (
     <div>
-      <Thirdnavbar/>
+      <Thirdnavbar />
+      <ToastContainer/>
 
       <div className="relative w-full h-40 mt-4 flex justify-center items-center">
         <img
@@ -100,11 +104,14 @@ function Firstissuance() {
                 Ordinary 66 page
               </label>
             </div>
- 
+
             <div className="flex justify-around">
-              <button className="bg-red-600 cursor-pointer w-34 h-10 text-white transition-all transition delay-150 duration-300 hover:w-38 hover:h-11">
+              <NavLink
+                to="/"
+                className="bg-red-600 px-6 py-2 text-white rounded hover:bg-red-700 transition-all duration-300 text-lg font-medium text-center"
+              >
                 Cancel
-              </button>
+              </NavLink>
               <button
                 onClick={handlenavigate}
                 className="bg-green-600 cursor-pointer w-34 h-10 text-white transition-all delay-150 duration-300 hover:w-38 hover:h-11 flex items-center justify-center"

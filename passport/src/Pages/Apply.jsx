@@ -7,7 +7,7 @@ import Thirdnavbar from "../navbar/Thirdnavbar";
 function Apply() {
   return (
     <>
-      <Thirdnavbar/>
+      <Thirdnavbar />
       <div className="relative w-full h-screen mt-3">
         {/* Background Image */}
         <img

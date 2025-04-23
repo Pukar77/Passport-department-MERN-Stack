@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import { NavLink } from "react-router";
 
 function Applycarts1() {
   return (
     <div>
-          <article className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm transition-all hover:shadow-md sm:p-4 max-w-xs ]">
+      <article className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm transition-all hover:shadow-md sm:p-4 max-w-xs ]">
         <span className="inline-block rounded-sm bg-blue-600 p-1.5 text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -25,16 +26,14 @@ function Applycarts1() {
 
         <a href="#">
           <h3 className=" text-2xl mt-1 font-semibold text-gray-900">
-            Renewal 
+            Renewal
           </h3>
         </a>
 
-        <p className="mt-2 text-sm text-gray-600">
-          Passport Renewal
-        </p>
+        <p className="mt-2 text-sm text-gray-600">Passport Renewal</p>
 
-        <a
-          href="#"
+        <NavLink
+          to="/pay"
           className="group mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
         >
           Find out more
@@ -44,10 +43,10 @@ function Applycarts1() {
           >
             &rarr;
           </span>
-        </a>
+        </NavLink>
       </article>
     </div>
-  )
+  );
 }
 
-export default Applycarts1
+export default Applycarts1;

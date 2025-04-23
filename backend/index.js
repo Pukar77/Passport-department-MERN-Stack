@@ -13,8 +13,8 @@ dbconnection();
 
 app.use(
   cors({
-    origin: "http://localhost:8000", // Your frontend URL
-    credentials: true, // ✅ Allow session cookies
+    origin: "http://localhost:8000", 
+    credentials: true, 
   })
 );
 

@@ -12,7 +12,7 @@ function App() {
       <Secondnavbar />
       <ImageSlider />
       <Checkstatus />
-      <Eservices/>
+      <Eservices />
     </>
   );
 }

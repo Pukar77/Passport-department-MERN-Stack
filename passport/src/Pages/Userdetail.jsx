@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Thirdnavbar from "../navbar/Thirdnavbar";
 import { useNavigate } from "react-router";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Userdetail() {
   const navigate = useNavigate();
@@ -24,7 +27,7 @@ function Userdetail() {
   const validateForm = () => {
     for (const key in userdata) {
       if (userdata[key].trim() === "") {
-        alert(`Please fill in all fields.`);
+        toast.error(`Please fill in all fields.`);
         return false;
       }
     }
@@ -49,8 +52,10 @@ function Userdetail() {
       console.log("Response received:", data); // Debugging
 
       if (response.ok) {
-        alert("Success");
-        navigate("/photo");
+        toast.success("Success");
+        setTimeout(() => {
+          navigate("/photo");
+        }, 2000);
       } else {
         alert("Some error occurred");
       }
@@ -78,6 +83,7 @@ function Userdetail() {
   return (
     <>
       <Thirdnavbar />
+      <ToastContainer />
       <form onSubmit={display}>
         <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
           <div className="bg-white shadow-lg rounded-xl p-6 md:p-10 w-full max-w-2xl">
