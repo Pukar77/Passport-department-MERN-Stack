@@ -1,3 +1,3 @@
 ﻿# Passport-department-MERN-Stack
 
-Project is under construction phase😉
+This project is built under MERN stack.
